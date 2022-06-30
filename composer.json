@@ -11,5 +11,8 @@
             "email": "92627280+seavmuoy@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "envms/fluentpdo": "^2.2",
+        "symfony/dotenv": "^6.1"
+    }
 }

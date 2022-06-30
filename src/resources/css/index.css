@@ -1,0 +1,30 @@
+* {
+    font-family: Comfortaa, sans-serif;
+}
+
+.c-center-parent {
+    min-height: 100vh;
+}
+
+.c-header {
+    margin: 40px;
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.c-child {
+    /* border: 1px solid green; */
+    width: 80%;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+#btn-submit {
+    font-size: larger;
+}
