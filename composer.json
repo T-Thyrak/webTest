@@ -1,0 +1,15 @@
+{
+    "name": "user/web-test",
+    "autoload": {
+        "psr-4": {
+            "User\\WebTest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Seavmuoy",
+            "email": "92627280+seavmuoy@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
