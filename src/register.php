@@ -62,8 +62,14 @@
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
                             <br>
+<<<<<<< HEAD
+
+                        <label for="class">Major</label>
+                            <input type="text" name="major" id=""  class="form-control my-4 py-2" placeholder="Major" required>
+=======
                             <label for="class">Class</label>
                             <input type="text" name="major" id=""  class="form-control mb-4 py-2" placeholder="Class" required>
+>>>>>>> 2eec4f15b16e7e0025eed329d653b282e89dde62
 
                         <label for="password">Password</label>
                             <input type="password" name="password" id=""  class="form-control mb-4 py-2" placeholder="Password" required>

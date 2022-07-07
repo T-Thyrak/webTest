@@ -18,8 +18,8 @@
 
 .c-child {
     /* border: 1px solid green; */
-    width: 80%;
-    background-color: white;
+    width: 70%;
+    background-color: wheat;
     padding: 50px;
     border-radius: 20px;
 }
@@ -33,10 +33,14 @@ label {
 }
 
 .c-viewport {
+<<<<<<< HEAD
+    background-image: linear-gradient(to bottom right, #51aebd, #385692);
+=======
     background-image: linear-gradient(to bottom right, #00bcd4, #00e5ff);
 }
 
 .register {
     margin-top: 20px;
     text-align: center;
+>>>>>>> 2eec4f15b16e7e0025eed329d653b282e89dde62
 }

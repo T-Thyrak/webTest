@@ -16,8 +16,8 @@ session_start();
     <div class="col-10 col-md-6 col-lg-4 m-auto">
         <div class="card border-5px shadow" >
             <div class="card-body">
-            <h3 class="text-success ms-1"> Information </h3>
-                <table class="table table-hover ">       
+            <h3 class="text-success ms-1"> Your I </h3>
+                <table class="table table-hover color blue">       
                 <tbody>
                         <tr>
                         <th >Name:</th>
@@ -34,7 +34,7 @@ session_start();
                         ?>
                         </td>
                         <tr>
-                        <th >Class:</th>
+                        <th >Major:</th>
                         <td>
                         <?php
                         echo $_SESSION['major'];

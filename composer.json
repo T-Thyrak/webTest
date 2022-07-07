@@ -13,6 +13,6 @@
     ],
     "require": {
         "envms/fluentpdo": "^2.2",
-        "symfony/dotenv": "^6.1"
+        "symfony/dotenv": "^6.0"
     }
 }
