@@ -6,18 +6,12 @@
     require_once 'translations/translations.php';
     require_once 'translations/translations_handler.php';
 
+    require_once 'controller/connect.php';
+
     use Envms\FluentPDO\Query;
-    use Symfony\Component\Dotenv\Dotenv;
-
-    $dotenv = new Dotenv();
-    $dotenv->load(__DIR__ . '/../.env');
-
-    $dsn_str = $_ENV['DRIVER'] . ':host=' . $_ENV['DB_HOST'] . ';port=' . $_ENV['DB_PORT'] . ';dbname=' . $_ENV['DB_NAME'];
 
     $pdo = new PDO($dsn_str, $_ENV['DB_USER'], $_ENV['DB_PASS']);
     $fluent = new Query($pdo);
-
-    $GLOBALS['f'] = $fluent;
 
     if (!isset($_GET['lang'])) {
         $_SESSION['lang'] = 'en';
@@ -73,7 +67,7 @@
 
                 <div class="c-form-wrapper">
                     <!-- form -->
-                    <form action=<?php echo "authenticate.php?lang=$_SESSION[lang]"?> method="post">
+                    <form action=<?php echo "views/login_authenticate.php?lang=$_SESSION[lang]"?> method="post">
                         <div class="form-group">
                             <label for="username"><?php echo $GLOBALS['tr']->get('username') ?></label>
                             <input type="text" class="form-control" id="username" name="username" placeholder=<?php echo $GLOBALS['tr']->get("username") ?>>
