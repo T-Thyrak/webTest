@@ -19,7 +19,7 @@
 .c-child {
     /* border: 1px solid green; */
     width: 80%;
-    background-color: white;
+    background-color: wheat;
     padding: 50px;
     border-radius: 20px;
 }
@@ -33,5 +33,5 @@ label {
 }
 
 .c-viewport {
-    background-image: linear-gradient(to bottom right, #00bcd4, #00e5ff);
+    background-image: linear-gradient(to bottom right, #51aebd, #385692);
 }
