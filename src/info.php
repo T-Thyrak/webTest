@@ -37,7 +37,7 @@ session_start();
                         <th >Class:</th>
                         <td>
                         <?php
-                        echo $_SESSION['class'];
+                        echo $_SESSION['major'];
                         ?>
                         </td>
                         <tr>
