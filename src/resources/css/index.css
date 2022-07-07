@@ -19,6 +19,9 @@
 .c-child {
     /* border: 1px solid green; */
     width: 80%;
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
 }
 
 label {
@@ -27,4 +30,8 @@ label {
 
 #btn-submit {
     font-size: larger;
+}
+
+.c-viewport {
+    background-image: linear-gradient(to bottom right, #00bcd4, #00e5ff);
 }

@@ -34,7 +34,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shit fuck oof ouch</title>
+    <title><?php echo $GLOBALS['tr']->get("login") ?></title>
     <!-- bootstrap yay -->
     <!-- CSS only -->
     <!-- JavaScript Bundle with Popper -->
@@ -53,7 +53,7 @@
                 <div class="change-lang">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="changeLangMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Change Language
+                            <?php echo $GLOBALS['tr']->get("change_language") ?>
                         </button>
 
                         <div class="dropdown-menu" aria-labelledby="changeLangMenuButton">
@@ -85,7 +85,6 @@
                         <button type="submit" class="btn btn-primary" id="btn-submit"><?php echo $GLOBALS['tr']->get('submit') ?></button>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>

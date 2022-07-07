@@ -4,6 +4,7 @@
         "username" => "用戶名",
         "password" => "密碼",
         "submit" => "提交",
+        "change_language" => "更改語言",
     );
 
     $file_content = gzcompress(serialize($translation), 9);

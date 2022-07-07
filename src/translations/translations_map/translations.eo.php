@@ -4,6 +4,7 @@
         "username" => "Uzantnomo",
         "password" => "Pasvorto",
         "submit" => "Ensendi",
+        "change_language" => "Ŝanĝi lingvon",
     );
 
     $file_content = gzcompress(serialize($translation), 9);
