@@ -83,6 +83,10 @@
                             <input type="password" class="form-control" id="password" name="password" placeholder=<?php echo $GLOBALS['tr']->get("password") ?>>
                         </div>
                         <button type="submit" class="btn btn-primary" id="btn-submit"><?php echo $GLOBALS['tr']->get('submit') ?></button>
+                        <div class="register">
+                            <p>Don't have account yet? register here <a href="register.php">Register</a> here
+                        </p>
+                        </div>
                     </form>
                 </div>
             </div>
