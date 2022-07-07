@@ -1,34 +1,24 @@
-<?php
-    include 'config.php';
-    error_reporting(0);
-    if(isset($_POST['submit'])){
-        $id = $_POST['id'];
-        $name = $_POST['name'];
-        $user_id = $_POST['user_id'];
-        $amount = $_POST['amount'];
-        $price = md5($_POST['price']);
+<?php    
+session_start();
 
-        $sql = "SELECT * FROM login WHERE email='$email' ";
-        $result = mysqli_query($conn,$sql);
-        if(!$result -> num_rows > 0 ){
-            $sql = "INSERT INTO login(id,name,user_id,amount,price)
-            VALUES('$id','$name','$user_id','$amount','$price') ";
-            $result = mysqli_query($conn,$sql);
-            if($result){
-                echo "<script> alert('Your registration completed.') </script>";
-                $id = "";
-                $name = "";
-                $amount = "";
-                $price = "";
-                $user_id= "";            
-            }else{
-                echo "<script> alert('Something went wrong.') </script>";
-            }          
-        }else{
-            echo "<script> alert('Email already Exist!.') </script>";
-        }
-        
-    }
+require '../vendor/autoload.php';
+
+require_once 'translations/translations.php';
+require_once 'translations/translations_handler.php';
+
+use Envms\FluentPDO\Query;
+use Symfony\Component\Dotenv\Dotenv;
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__ . '/../.env');
+
+$dsn_str = $_ENV['DRIVER'] . ':host=' . $_ENV['DB_HOST'] . ';port=' . $_ENV['DB_PORT'] . ';dbname=' . $_ENV['DB_NAME'];
+
+$pdo = new PDO($dsn_str, $_ENV['DB_USER'], $_ENV['DB_PASS']);
+$fluent = new Query($pdo);
+
+$GLOBALS['f'] = $fluent;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
