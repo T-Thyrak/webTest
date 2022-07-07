@@ -1,4 +1,5 @@
 <?php
+    $__tr_en_dr = dirname(__FILE__);
     $translation = array(
         "login" => "Login",
         "username" => "Username",
@@ -11,7 +12,7 @@
 
     $file_content = gzcompress(serialize($translation), 9);
 
-    if (!(file_exists("translations/translations_map/translations/translations.en.tr") && $file_content === file_get_contents("translations/translations_map/translations/translations.en.tr"))) {
-        file_put_contents("translations/translations_map/translations/translations.en.tr", $file_content);
+    if (!(file_exists($__tr_en_dr."/translations/translations.en.tr") && $file_content === file_get_contents($__tr_en_dr."/translations/translations.en.tr"))) {
+        file_put_contents($__tr_en_dr."/translations/translations.en.tr", $file_content);
     }
 ?>

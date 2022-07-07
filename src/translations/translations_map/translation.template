@@ -6,7 +6,8 @@
         "submit" => 
         "change_language" => 
         "no_account?" => 
-        "register_now" =>
+        "register_now" => 
+        "registration_form" => 
     );
 
     $file_content = gzcompress(serialize($translation), 9);
