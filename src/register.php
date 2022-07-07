@@ -62,8 +62,8 @@
                             </div>
                             <br>
 
-                        <label for="class">Class</label>
-                            <input type="text" name="major" id=""  class="form-control my-4 py-2" placeholder="Class" required>
+                        <label for="class">Major</label>
+                            <input type="text" name="major" id=""  class="form-control my-4 py-2" placeholder="Major" required>
 
                         <label for="password">Password</label>
                             <input type="password" name="password" id=""  class="form-control my-4 py-2" placeholder="Password" required>
