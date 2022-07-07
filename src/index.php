@@ -1,8 +1,6 @@
 <?php
     session_start();
 
-    echo $_SERVER["DOCUMENT_ROOT"];
-
     require '../vendor/autoload.php';
 
     require_once 'translations/translations.php';

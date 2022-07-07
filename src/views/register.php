@@ -14,4 +14,12 @@
     $fluent = new Query($pdo);
 
     $GLOBALS['f'] = $fluent;
+
+    if (!isset($_GET['lang'])) {
+        $_SESSION['lang'] = 'en';
+    } else {
+        $_SESSION['lang'] = array_key_exists($_GET['lang'], $translation_array) ? $_GET['lang'] : 'en';
+    }
+
+    $GLOBALS['tr'] = get_translation_handler($_SESSION['lang']);
 ?>
