@@ -37,7 +37,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <link rel="stylesheet" href="resources/css/common.css">
     <link rel="stylesheet" href="resources/css/index.css">
 </head>
 <body>
@@ -78,7 +80,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary" id="btn-submit"><?php echo $GLOBALS['tr']->get('submit') ?></button>
                         <div class="register">
-                            <p>Don't have account yet? register here <a href="register.php">Register</a> here
+                            <p><?php echo $GLOBALS['tr']->get("no_account?") . " <a href='views/register.php'>" . $GLOBALS['tr']->get("register_now") . "</a>" ?>
                         </p>
                         </div>
                     </form>
@@ -86,5 +88,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        <?php
+            $failed = isset($_GET['failed']) ? $_GET['failed'] : false;
+
+            echo "let lg = ";
+            if ($failed) {
+                echo "false";
+            } else {
+                echo "true";
+            }
+            echo ";";
+        ?>
+
+        if (!lg) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Do you want to continue',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+        }
+    </script>
 </body>
 </html>

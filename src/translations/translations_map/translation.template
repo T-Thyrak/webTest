@@ -5,6 +5,8 @@
         "password" => 
         "submit" => 
         "change_language" => 
+        "no_account?" => 
+        "register_now" =>
     );
 
     $file_content = gzcompress(serialize($translation), 9);

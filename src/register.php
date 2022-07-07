@@ -36,6 +36,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration-Form</title>
+    <link rel="stylesheet" href="resources/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
@@ -43,30 +44,35 @@
             <div class="col-10 col-md-6 col-lg-4 m-auto">
                 <div class="card border-5px shadow" >
                     <div class="card-body">
-                    <h2 class="text-muted ms-1"> SignUp </h2>
+                    <h2 class="text-muted ms-1 text-center"> SignUp </h2>
                         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-                        <label for="username">User Name</label>
-                            <input type="text" name="username" id=""  class="form-control my-4 py-2" placeholder="Username" required>
+                            <label for="username">User Name</label>
+                            <input type="text" name="username" id=""  class="form-control mb-4 py-2" placeholder="Username" required>
 
-                        <label for="email">Email</label>
-                            <input type="email" name="email" id=""  class="form-control my-4 py-2" placeholder="Email">                            
-                            <div class="form-check form-check-inline">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id=""  class="form-control mb-4 py-2" placeholder="Email" required>                            
+                            <!-- <div class="form-check form-check-inline"> -->
 
-                        <label for="gender">Gender</label><br>
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="Female" required />
-                                <label class="form-check-label" for="female">Female</label>
+                             <label for="gender">Gender</label><br>
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="Female" required />
+                            <label class="form-check-label" for="female">Female</label>
         
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline mb-4">
                                 <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required/>
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
                             <br>
+<<<<<<< HEAD
 
                         <label for="class">Major</label>
                             <input type="text" name="major" id=""  class="form-control my-4 py-2" placeholder="Major" required>
+=======
+                            <label for="class">Class</label>
+                            <input type="text" name="major" id=""  class="form-control mb-4 py-2" placeholder="Class" required>
+>>>>>>> 2eec4f15b16e7e0025eed329d653b282e89dde62
 
                         <label for="password">Password</label>
-                            <input type="password" name="password" id=""  class="form-control my-4 py-2" placeholder="Password" required>
+                            <input type="password" name="password" id=""  class="form-control mb-4 py-2" placeholder="Password" required>
                             <div class="text-center mt-3">
                                 <button name="submit" class="btn btn-primary mb-3">
                                     Submit  <a href="Data.txt"></a></button>

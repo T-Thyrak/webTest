@@ -9,6 +9,8 @@
     $pdo = new PDO($dsn_str, $_ENV['DB_USER'], $_ENV['DB_PASS']);
     $fluent = new Query($pdo);
 
+    $failed = false;
+
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -18,18 +20,21 @@
         ->fetch();
     
     if ($userdata === false) {
-        echo "USER NOT FOUND";
-        echo "<br />";
-    } else {
+        $failed = true;
+    }
+    
+    if (!$failed) {
         $salt = $userdata['salt'];
         $hash = $userdata['hash'];
-    
+
         $hash_check = hash('sha256', $password.$salt);
-    
-        if ($hash_check === $hash) {
-            echo "LOGIN SUCCESSFUL";
-        } else {
-            echo "LOGIN NOT SUCCESSFUL";
+
+        if ($hash_check !== $hash) {
+            $failed = true;
         }
+    }
+
+    if ($failed) {
+        header("Location: src/index.php?failed=1");
     }
 ?>
