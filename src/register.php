@@ -27,34 +27,7 @@
     }
 
     $GLOBALS['tr'] = get_translation_handler($_SESSION['lang']);
-    if(isset($_POST['submit'])){
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $major = $_POST['major'];
-        $gender = $_POST['gender'];
-        $password = md5($_POST['password']);
 
-        $sql = "SELECT * FROM login WHERE email='$email' ";
-        $result = mysqli_query($conn,$sql);
-        if(!$result -> num_rows > 0 ){
-            $sql = "INSERT INTO login(username,email,class,gender,password)
-            VALUES('$username','$email','$major','$gender','$password') ";
-            $result = mysqli_query($conn,$sql);
-            if($result){
-                echo "<script> alert('Your registration completed.') </script>";
-                $username = "";
-                $email = "";
-                $class = "";
-                $gender = "";
-                $_POST['password']= "";              
-            }else{
-                echo "<script> alert('Something went wrong.') </script>";
-            }          
-        }else{
-            echo "<script> alert('Email already Exist!.') </script>";
-        }
-        
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

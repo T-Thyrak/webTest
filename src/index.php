@@ -1,6 +1,8 @@
 <?php
     session_start();
 
+    echo $_SERVER["DOCUMENT_ROOT"];
+
     require '../vendor/autoload.php';
 
     require_once 'translations/translations.php';
@@ -38,6 +40,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="resources/css/common.css">
     <link rel="stylesheet" href="resources/css/index.css">
 </head>
 <body>
@@ -78,7 +81,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary" id="btn-submit"><?php echo $GLOBALS['tr']->get('submit') ?></button>
                         <div class="register">
-                            <p>Don't have account yet? register here <a href="register.php">Register</a> here
+                            <p><?php echo $GLOBALS['tr']->get("no_account?") . " <a href='views/register.php'>" . $GLOBALS['tr']->get("register_now") . "</a>" ?>
                         </p>
                         </div>
                     </form>

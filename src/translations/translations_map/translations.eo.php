@@ -5,6 +5,8 @@
         "password" => "Pasvorto",
         "submit" => "Ensendi",
         "change_language" => "Ŝanĝi lingvon",
+        "no_account?" => "Ĉu vi ne havas konton?",
+        "register_now" => "Registri nun!"
     );
 
     $file_content = gzcompress(serialize($translation), 9);

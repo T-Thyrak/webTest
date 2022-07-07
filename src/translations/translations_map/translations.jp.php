@@ -5,6 +5,8 @@
         "password" => "パスワード",
         "submit" => "提出",
         "change_language" => "言語を変更",
+        "no_account?" => "アカウントがありませんか？",
+        "register_now" => "今すぐ登録"
     );
 
     $file_content = gzcompress(serialize($translation), 9);
