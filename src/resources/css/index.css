@@ -35,3 +35,8 @@ label {
 .c-viewport {
     background-image: linear-gradient(to bottom right, #00bcd4, #00e5ff);
 }
+
+.register {
+    margin-top: 20px;
+    text-align: center;
+}
