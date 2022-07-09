@@ -7,7 +7,19 @@
         "submit" => "Submit",
         "change_language" => "Change Language",
         "no_account?" => "Don't have an account yet?",
-        "register_now" => "Register Now!"
+        "register_now" => "Register Now!",
+        "registration_form" => "Registration Form",
+        "email" => "Email",
+        "gender" => "Gender",
+        "male" => "Male",
+        "female" => "Female",
+        "other" => "Other",
+        "class" => "Class",
+        "confirm_password" => "Confirm Password",
+        "*all_required" => "*: All fields are required unless specified",
+        "submit_register" => "Submit Register",
+        "already_have_account?" => "Already have an account?",
+        "login_instead" => "Login Instead",
     );
 
     $file_content = gzcompress(serialize($translation), 9);

@@ -14,8 +14,18 @@
 
 .c-child {
     /* border: 1px solid green; */
-    width: 70%;
+    width: 150%;
     background-color: wheat;
     padding: 50px;
     border-radius: 20px;
+    transform: translate(-15%, 0);
+}
+
+.sub-notice {
+    font-weight: bold;
+    text-align: center;
+}
+
+.c-viewport {
+    background-image: linear-gradient(to bottom right, #2b8492, #7499e3);
 }

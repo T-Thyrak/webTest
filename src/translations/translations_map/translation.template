@@ -8,6 +8,17 @@
         "no_account?" => 
         "register_now" => 
         "registration_form" => 
+        "email" => 
+        "gender" => 
+        "male" => 
+        "female" => 
+        "other" => 
+        "class" => 
+        "confirm_password" => 
+        "*all_required" => 
+        "submit_register" => 
+        "already_have_account?" => 
+        "login_instead" => 
     );
 
     $file_content = gzcompress(serialize($translation), 9);
