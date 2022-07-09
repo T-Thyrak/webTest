@@ -42,6 +42,12 @@
     <link rel="stylesheet" href="resources/css/register.css">
 </head>
 <body>
-    
+    <div class="c-viewport">
+        <div class="c-center-parent">
+            <div class="c-child">
+                
+            </div>
+        </div>
+    </div>
 </body>
 </html>
