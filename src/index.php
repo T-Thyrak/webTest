@@ -13,10 +13,12 @@
     $pdo = new PDO($dsn_str, $_ENV['DB_USER'], $_ENV['DB_PASS']);
     $fluent = new Query($pdo);
 
-    if (!isset($_GET['lang'])) {
-        $_SESSION['lang'] = 'en';
-    } else {
+    if (isset($_GET['lang'])) {
         $_SESSION['lang'] = array_key_exists($_GET['lang'], $translation_array) ? $_GET['lang'] : 'en';
+    } else {
+        if (!isset($_SESSION['lang'])) {
+            $_SESSION['lang'] = 'en';
+        }
     }
 
     $GLOBALS['tr'] = get_translation_handler($_SESSION['lang']);
@@ -44,7 +46,7 @@
 </head>
 <body>
     <div class="c-viewport">
-        <div class="c-center-parent container d-flex justify-content-center align-items-center h-100">
+        <div class="c-center-parent container d-flex justify-content-center align-items-center h-100 flex-column">
             <div class="c-child">
                 <div class="change-lang">
                     <div class="dropdown">
@@ -87,6 +89,10 @@
                 </div>
             </div>
         </div>
+        <div class="c-footer text-center">
+            <?php echo $GLOBALS['tr']->get("cookies") ?>
+        </div>
+
     </div>
 
     <script>
@@ -104,10 +110,10 @@
 
         if (!lg) {
             Swal.fire({
-                title: 'Error!',
-                text: 'Do you want to continue',
+                title: <?php echo "'".$GLOBALS['tr']->get("error!")."'"?>,
+                text: <?php echo "'".$GLOBALS['tr']->get("login_failed!")."<br />".$GLOBALS['tr']->get("reason").$GLOBALS['tr']->get("reason.invalid_credentials")."'" ?>,
                 icon: 'error',
-                confirmButtonText: 'Cool'
+                confirmButtonText: <?php echo "'".$GLOBALS['tr']->get("reenter_credentials")."'"?>
             })
         }
     </script>

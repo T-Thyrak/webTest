@@ -20,6 +20,13 @@
         "submit_register" => "登録情報提出",
         "already_have_account?" => "アカウントがありますか？",
         "login_instead" => "ログインする",
+        "cookies" => "このサイトを使用するには、Cookieの使用に同意したことになります。<br />トークンを使用した永続的なログインセッションを提供するためにCookieを使用し、非アクティブの30分後に削除されます。",
+        "error!" => "エラー！",
+        "login_failed!" => "ログインに失敗しました！",
+        "register_failed!" => "登録に失敗しました！",
+        "reason" => "理由: ",
+        "reason.invalid_credentials" => "無効な認証情報です。",
+        "reenter_credentials" => "認証情報を再度入力してください。",
     );
 
     $file_content = gzcompress(serialize($translation), 9);

@@ -9,6 +9,16 @@
     $pdo = new PDO($dsn_str, $_ENV['DB_USER'], $_ENV['DB_PASS']);
     $fluent = new Query($pdo);
 
+    if (isset($_GET['lang'])) {
+        $_SESSION['lang'] = array_key_exists($_GET['lang'], $translation_array) ? $_GET['lang'] : 'en';
+    } else {
+        if (!isset($_SESSION['lang'])) {
+            $_SESSION['lang'] = 'en';
+        }
+    }
+
+    $GLOBALS['tr'] = get_translation_handler($_SESSION['lang']);
+
     $failed = false;
 
     $username = $_POST['username'];
@@ -35,6 +45,6 @@
     }
 
     if ($failed) {
-        header("Location: src/index.php?failed=1");
+        header("Location: /src/index.php?failed=1");
     }
 ?>

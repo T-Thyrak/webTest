@@ -19,6 +19,13 @@
         "submit_register" => 
         "already_have_account?" => 
         "login_instead" => 
+        "cookies" => 
+        "error!" => 
+        "login_failed!" => 
+        "register_failed!" => 
+        "reason" => 
+        "reason.invalid_credentails" => 
+        "reenter_credentials" =>
     );
 
     $file_content = gzcompress(serialize($translation), 9);

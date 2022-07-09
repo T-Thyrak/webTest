@@ -20,6 +20,13 @@
         "submit_register" => "Submit Register",
         "already_have_account?" => "Already have an account?",
         "login_instead" => "Login Instead",
+        "cookies" => "By using this website, you agree to our use of cookies.<br>We use cookies to provide persistent login sessions with tokens, and will be deleted in 30 minutes of inactivity.",
+        "error!" => "Error!",
+        "login_failed!" => "Login Failed!",
+        "register_failed!" => "Registration Failed!",
+        "reason" => "Reason(s): ",
+        "reason.invalid_credentials" => "Invalid credentials.",
+        "reenter_credentials" => "Re-enter credentials",
     );
 
     $file_content = gzcompress(serialize($translation), 9);

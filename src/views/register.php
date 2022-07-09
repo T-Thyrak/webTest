@@ -15,10 +15,12 @@
 
     $GLOBALS['f'] = $fluent;
 
-    if (!isset($_GET['lang'])) {
-        $_SESSION['lang'] = 'en';
-    } else {
+    if (isset($_GET['lang'])) {
         $_SESSION['lang'] = array_key_exists($_GET['lang'], $translation_array) ? $_GET['lang'] : 'en';
+    } else {
+        if (!isset($_SESSION['lang'])) {
+            $_SESSION['lang'] = 'en';
+        }
     }
 
     $GLOBALS['tr'] = get_translation_handler($_SESSION['lang']);
@@ -63,7 +65,7 @@
                 <div class="card-body">
                     <h2 class="register text-muted ms-1 text-center"><?php echo $GLOBALS['tr']->get("registration_form") ?></h2>
                     <h6 class="sub-notice text-muted ms-1 text-center"><?php echo $GLOBALS['tr']->get("*all_required") ?></h6>
-                    <form action=<?php echo "register_authenticate?lang=$_SESSION[lang]" ?> method="post">
+                    <form action=<?php echo "register_authenticate.php?lang=$_SESSION[lang]" ?> method="post">
                         <label for="username"><?php echo $GLOBALS['tr']->get('username') ?></label>
                         <input type="text" name="username" id="f-username" class="form-control mb-4 py-2" placeholder=<?php echo $GLOBALS['tr']->get("username") ?> required>
                         
@@ -93,7 +95,7 @@
                         <input type="password" name="password" id="f-password" class="form-control mb-4 py-2" placeholder=<?php echo $GLOBALS['tr']->get("password") ?> required>
 
                         <label for="confirm-password"><?php echo $GLOBALS['tr']->get('confirm_password') ?></label>
-                        <input type="password" name="confirm-password" id="f-confirm-password" class="form-control mb-4 py-2" placeholder=<?php echo $GLOBALS['tr']->get("confirm_password") ?> required>
+                        <input type="password" name="confirm-password" id="f-confirm-password" class="form-control mb-4 py-2" placeholder=<?php echo "'".$GLOBALS['tr']->get("confirm_password")."'" ?> required>
 
                         <button type="submit" class="btn btn-primary btn-block mb-4"><?php echo $GLOBALS['tr']->get("submit_register") ?></button>
                     </form>

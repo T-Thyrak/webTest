@@ -20,6 +20,13 @@
         "submit_register" => "Ensendi Registri",
         "already_have_account?" => "Ĉu vi jam havas konton?",
         "login_instead" => "Ensaluti anstataŭe",
+        "cookies" => "Uzante ĉi tiun retejon, vi konsentas pri nia uzo de kuketoj.<br />Ni uzas kuketojn por provizi konstantan ensalutan sesion kun ĵetonoj, kaj estos forigitaj post 30 minutoj da neaktiveco.",
+        "error!" => "Eraro!",
+        "login_failed" => "Ensaluto malsukcesis!",
+        "register_failed!" => "Registrado malsukcesis!",
+        "reason" => "Kialo(j): ",
+        "reason.invalid_credentials" => "Nevalida uzantnomo kaj/aŭ pasvorto.",
+        "reenter_credentials" => "Reenigu akreditaĵojn",
     );
 
     $file_content = gzcompress(serialize($translation), 9);

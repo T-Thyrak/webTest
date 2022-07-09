@@ -20,6 +20,13 @@
         "submit_register" => "提交註冊信息",
         "already_have_account?" => "已經有賬戶了？",
         "login_instead" => "改為登錄",
+        "cookies" => "使用本網站，即表示您同意我們使用 cookie。 我們使用 cookie 來提供帶有令牌的持久登錄會話，並將在 30 分鐘不活動後被刪除。",
+        "error!" => "錯誤！",
+        "login_failed!" => "登錄失敗！",
+        "register_failed!" => "註冊失敗！",
+        "reason" => "原因： ",
+        "reason.invalid_credentials" => "無效的認證信息。",
+        "reenter_credentials" => "請再次輸入認證信息。",
     );
 
     $file_content = gzcompress(serialize($translation), 9);
