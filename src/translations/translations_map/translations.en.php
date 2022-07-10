@@ -22,10 +22,18 @@
         "login_instead" => "Login Instead",
         "cookies" => "By using this website, you agree to our use of cookies.<br>We use cookies to provide persistent login sessions with tokens, and will be deleted in 30 minutes of inactivity.",
         "error!" => "Error!",
+        "success" => "Success!",
         "login_failed!" => "Login Failed!",
         "register_failed!" => "Registration Failed!",
+        "register_success!" => "Registration Success!",
         "reason" => "Reason(s): ",
         "reason.invalid_credentials" => "Invalid credentials.",
+        "reason.password_mismatch" => "Passwords do not match.",
+        "reason.username_taken" => "Username is taken.",
+        "reason.password_too_weak" => "Password is too weak.<br />Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.",
+        "reason.name_too_long" => "Name is too long.",
+        "reason.class_too_long" => "Class is too long.",
+        "reason.unknown" => "Unknown error.",
         "reenter_credentials" => "Re-enter credentials",
     );
 

@@ -21,10 +21,18 @@
         "login_instead" => 
         "cookies" => 
         "error!" => 
+        "success!" => 
         "login_failed!" => 
         "register_failed!" => 
+        "register_success!" =>
         "reason" => 
         "reason.invalid_credentails" => 
+        "reason.password_mismatch" => 
+        "reason.username_taken" =>
+        "reason.password_too_weak" => 
+        "reason.name_too_long" => 
+        "reason.class_too_long" => 
+        "reason.unknown" => 
         "reenter_credentials" =>
     );
 
