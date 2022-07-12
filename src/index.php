@@ -22,6 +22,10 @@
     }
 
     $GLOBALS['tr'] = get_translation_handler($_SESSION['lang']);
+
+    if (isset($_COOKIE['php-l4-token'])) {
+        header("Location: views/main_page.php");
+    }
 ?>
 
 <!DOCTYPE html>

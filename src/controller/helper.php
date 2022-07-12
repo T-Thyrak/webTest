@@ -17,16 +17,16 @@ use Envms\FluentPDO\Query;
         return $randomstring;
     }
 
-    function create_new_token(Query $fluent, int $user_id): string {
-        $token = generateRandomSaltString(64);
+    function create_new_token(Query $fluent, int $user_id, string $gtoken): string {
+        $vars = [
+            'fuid' => $user_id,
+            'ftoken' => $gtoken,
+            'flu' => date('Y-m-d H:i:s', (time() + 3600 * 5)),
+        ];
 
-        $fluent->insertInto('tokens')
-            ->values([
-                'token' => $token,
-                'user_id' => $user_id,
-            ])
-            ->execute();
-        
-        return $token;
+        $fluent->insertInto('tokens', $vars)
+                ->execute();
+
+        return $gtoken;
     }
 ?>

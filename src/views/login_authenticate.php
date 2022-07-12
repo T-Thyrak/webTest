@@ -51,10 +51,11 @@
     }
 
     # is the token cookie set, if not, create a new token
+    $gt = generateRandomSaltString(64);
     if (!isset($_COOKIE['token'])) {
-        $token = create_new_token($fluent, $user_id);
+        $token = create_new_token( $fluent, $user_id, $gt);
         # expires in 30 minutes
-        setcookie('php-l4-token', $token, time() + 1800);
+        setcookie('php-l4-token', $token, time() + 1800, "/");
     }
 
     # if the token cookie is set, check if it is valid
@@ -65,25 +66,27 @@
             ->where('token', $token)
             ->fetch();
         if ($token_check === false) {
-            $token = create_new_token($fluent, $user_id);
+            $token = create_new_token($fluent, $user_id, $gt);
             # expires in 30 minutes
-            setcookie('php-l4-token', $token, time() + 1800);
+            setcookie('php-l4-token', $token, time() + 1800, "/");
         } else {
             $last_updated = $token_check['last_updated'];
             if (time() - $last_updated > 1800) {
-                $token = create_new_token($fluent, $user_id);
+                $token = create_new_token($fluent, $user_id, $gt);
                 # expires in 30 minutes
-                setcookie('php-l4-token', $token, time() + 1800);
+                setcookie('php-l4-token', $token, time() + 1800, "/");
             }
         }
     }
 
     # update the last_updated field of the token
     $fluent->update('tokens')
-        ->set('last_updated', date('Y-m-d H:i:s'))
+        ->set('last_updated', date('Y-m-d H:i:s', time() + 3600 * 5))
         ->where('token', $token)
         ->execute();
     
     # redirect to main page
-    header("Location: main_page.php");
+    // header("Location: main_page.php");
+
+    echo "<button onclick='main_page.php'>Go to Main Page</button>";
 ?>
