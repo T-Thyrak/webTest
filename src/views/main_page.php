@@ -107,6 +107,7 @@
                         echo "<td>".$row['amount']."</td>";
                         echo "<td>$".$price."</td>";
                         echo "<td><button class='btn btn-primary'><i class='bi bi-pencil-square'></i>&nbsp;&nbsp;Edit</button>&nbsp;&nbsp;<button class='btn btn-danger'><i class='bi bi-trash'></i>&nbsp;&nbsp;Delete</td>";
+                        echo "</tr>";
                     }
                 ?>
             </tbody>
