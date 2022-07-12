@@ -19,9 +19,9 @@ use Envms\FluentPDO\Query;
 
     function create_new_token(Query $fluent, int $user_id, string $gtoken): string {
         $vars = [
-            'fuid' => $user_id,
-            'ftoken' => $gtoken,
-            'flu' => date('Y-m-d H:i:s', (time() + 3600 * 5)),
+            'user_id' => $user_id,
+            'token' => $gtoken,
+            'last_updated' => date('Y-m-d H:i:s', (time() + 3600 * 5)),
         ];
 
         $fluent->insertInto('tokens', $vars)
