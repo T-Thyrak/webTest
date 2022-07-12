@@ -24,8 +24,8 @@
             $_SESSION['lang'] = 'en';
         }
     }
-
     $GLOBALS['tr'] = get_translation_handler($_SESSION['lang']);
+    //=====================================================================
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -86,7 +86,7 @@
         ->execute();
     
     # redirect to main page
-    // header("Location: main_page.php");
+    header("Location: main_page.php");
 
-    echo "<button onclick='main_page.php'>Go to Main Page</button>";
+    // echo "<button onclick='main_page.php'>Go to Main Page</button>";
 ?>
