@@ -109,7 +109,7 @@
                         echo "<td>".$row['name']."</td>";
                         echo "<td>".$row['amount']."</td>";
                         echo "<td>$".$price."</td>";
-                        echo "<td><button onclick='toggleEdit($row_encode)' id='btn-edit' class='btn btn-primary'><i class='bi bi-pencil-square'></i>&nbsp;&nbsp;Edit</button>&nbsp;&nbsp;<button onclick='toggleDelete()' id='btn-delete' class='btn btn-danger'><i class='bi bi-trash'></i>&nbsp;&nbsp;Delete</td>";
+                        echo "<td><button onclick='toggleEdit($row_encode)' id='btn-edit' class='btn btn-primary'><i class='bi bi-pencil-square'></i>&nbsp;&nbsp;Edit</button>&nbsp;&nbsp;<button onclick='toggleDelete($row_encode)' id='btn-delete' class='btn btn-danger'><i class='bi bi-trash'></i>&nbsp;&nbsp;Delete</td>";
                         $i++;
                     }
                 ?>
@@ -250,7 +250,8 @@
         }
         return true;
     }
-    function toggleDelete(){
+    function toggleDelete(row){
+        product_id = row.id;
         Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -261,13 +262,41 @@
         confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
         if (result.isConfirmed) {
+            deleteDataFromDataBase({
+                product_id
+            });
+
             Swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'
-            )
+            ).then((result) => {
+                    window.location.href = "./main_page.php";
+                }
+            );
         }
-        })
+     })
+    }
+    function deleteDataFromDataBase(product_id){
+        var resp = {};
+        let setting = {
+            url : "http://localhost:<?php echo $_ENV['LOCALHOST_PORT'] ?>/src/views/delete_data.php",
+            method: "POST",
+            timeout: 0,
+            headers: {
+                'Content-Type': "application/json",
+            },
+            async: false,
+            success: response => {
+                resp = response.status;
+                console.log(response);
+            },
+            data: JSON.stringify({
+                pd_id: product_id,
+            }),
+        };
+        $.ajax(setting);
+        return resp;
     }
 </script>
 
