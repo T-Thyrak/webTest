@@ -120,10 +120,10 @@
 
 <script>
     async function toggleEdit(row){
-        product_id = row.id;
-        product_name = row.name;
-        product_qty = row.amount;
-        product_price = row.price;
+        var product_id = row.id;
+        var product_name = row.name;
+        var product_qty = row.amount;
+        var product_price = row.price;
 
         const { value: formValues } = await Swal.fire({
             title: 'Edit the row',
@@ -254,7 +254,8 @@
     function checkOnlyNumber(qty) {
         return /^\-?[0-9]+(e[0-9]+)?(\.[0-9]+)?$/.test(qty);
     }
-    function toggleDelete(){
+    function toggleDelete(row){
+        var product_id = row.id;
         Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
