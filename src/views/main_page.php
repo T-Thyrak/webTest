@@ -252,7 +252,7 @@
         return true;
     }
     function checkOnlyNumber(qty) {
-        return /^\-?[0-9]+(e[0-9]+)?(\.[0-9]+)?$/.test(str);
+        return /^\-?[0-9]+(e[0-9]+)?(\.[0-9]+)?$/.test(qty);
     }
     function toggleDelete(){
         Swal.fire({
