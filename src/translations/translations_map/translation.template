@@ -66,6 +66,7 @@
         "swal.edit.discard" =>
         "swal.edit.discard.title" =>
         "swal.edit.discard.text" =>
+        "swal.edit.cancel" => 
         "swal.edit.confirm.title" =>
         "swal.edit.confirm.save" =>
         "swal.edit.confirm.cancel" =>

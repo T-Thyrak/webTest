@@ -122,7 +122,7 @@
                 <div class="c-navbar-inner">
                     <div class="c-lalign">
                         <a href="../index.php">
-                            <img src="../assets/img/light.png" alt="logo" class="c-logo" width="32">
+                            <img src="../assets/img/revert.png" alt="logo" class="c-logo" width="32">
                         </a>
                         <!-- project name -->
                         <h4>Web Application Lab</h4>
@@ -131,7 +131,7 @@
                     <div class="c-ralign">
                         <!-- navbar items (Add product and a dropdown settings) -->
                         <div class="c-nav-item">
-                            <button onclick="toggleAddProduct(<?php echo $GLOBALS['user_id'] ?>)" class="btn btn-primary">
+                            <button onclick="toggleAddProduct(<?php echo $GLOBALS['user_id'] ?>)" class="btn bg-white">
                                 <i class="bi bi-node-plus"></i>
                                 <?php echo $GLOBALS['tr']->get('add_products') ?>
                             </button>
