@@ -164,10 +164,11 @@
             });
             /* Read more about isConfirmed, isDenied below */
             if (formValues) {
+                onlyNumberQty = checkOnlyNumber(formValues.pd_qty);
                 qty = parseFloat(formValues.pd_qty);
                 price = Math.round(formValues.pd_price);
 
-                if(!isValidName(formValues.pd_name) || !isValidPrice(formValues.pd_price) || !isValidQty(qty)){
+                if(!isValidName(formValues.pd_name) || !isValidPrice(formValues.pd_price) || !isValidQty(qty) || !onlyNumberQty){
                     Swal.fire(
                         'Deny Change',
                         'Some input changed may cause error! Please try again.',
@@ -249,6 +250,9 @@
             return false;
         }
         return true;
+    }
+    function checkOnlyNumber(qty) {
+        return /^\-?[0-9]+(e[0-9]+)?(\.[0-9]+)?$/.test(str);
     }
     function toggleDelete(){
         Swal.fire({
