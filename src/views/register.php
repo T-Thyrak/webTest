@@ -42,6 +42,8 @@
 
     <link rel="stylesheet" href="../resources/css/common.css">
     <link rel="stylesheet" href="../resources/css/register.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/light.png">
+
 </head>
 <body>
     <div class="c-viewport pt-5">
