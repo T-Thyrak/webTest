@@ -60,6 +60,8 @@
         "th.product_price" => "產品價格",
         "th.product_quantity" => "產品數量",
         "th.actions" => "動作",
+        "th.actions.edit" => "編輯",
+        "th.actions.delete" => "刪除",
         "th.edit" => "編輯",
         "th.delete" => "刪除",
         "swal.edit.title" => "編輯產品",
