@@ -75,12 +75,14 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/light.png">
 
     <style>
         * {
             font-family: Comfortaa, sans-serif;
         }
     </style>
+    <title>Product Page</title>
 
     <script class="init"> $(document).ready(() => { $('#example').DataTable(); }); </script>
 </head><body>
@@ -98,18 +100,176 @@
             <tbody>
                 <?php
                     $prod = $GLOBALS['product_query'];
+                    $i = 0;
                     foreach ($prod as $row) {
                         $price = sprintf("%.2f", $row['price']/100);
-
+                        $row_encode = json_encode($row);
                         echo "<tr>";
                         echo "<td>".$row['id']."</td>";
                         echo "<td>".$row['name']."</td>";
                         echo "<td>".$row['amount']."</td>";
                         echo "<td>$".$price."</td>";
-                        echo "<td><button class='btn btn-primary'><i class='bi bi-pencil-square'></i>&nbsp;&nbsp;Edit</button>&nbsp;&nbsp;<button class='btn btn-danger'><i class='bi bi-trash'></i>&nbsp;&nbsp;Delete</td>";
+                        echo "<td><button onclick='toggleEdit($row_encode)' id='btn-edit' class='btn btn-primary'><i class='bi bi-pencil-square'></i>&nbsp;&nbsp;Edit</button>&nbsp;&nbsp;<button onclick='toggleDelete()' id='btn-delete' class='btn btn-danger'><i class='bi bi-trash'></i>&nbsp;&nbsp;Delete</td>";
+                        $i++;
                     }
                 ?>
             </tbody>
         </table>
     </div>
-</body></html>
+</body>
+
+<script>
+    async function toggleEdit(row){
+        product_id = row.id;
+        product_name = row.name;
+        product_qty = row.amount;
+        product_price = row.price;
+
+        const { value: formValues } = await Swal.fire({
+            title: 'Edit the row',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Confirm',
+            denyButtonText: `Discard`,
+            width: '700px',
+            html:
+                '<table class="w-100">'+
+                '<tr>'+
+                '<td class="text-left">'+'<label for="id">Product id :</label>'+ '</td>'+
+                '<td>'+`<input id="pd_id" class="swal2-input" name="id" value=${product_id} disabled>` +'</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td class="text-right">'+ '<label for="product_name">Product name :</label>'+'</td>'+
+                '<td>'+`<input id="pd_name" class="swal2-input" name="product_name" value=${product_name}>`+'</td>'+
+                '</tr>'+
+                '</tr>'+
+                '<tr>'+
+                '<td class="text-right">'+ '<label for="product_qty">Product qty :</label>'+'</td>'+
+                '<td>'+`<input id="pd_qty" class="swal2-input" name="product_qty" value=${product_qty}>` +'</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td class="text-right">'+'<label for="product_price">Product price :</label>' +'</td>'+
+                '<td>'+ `<input id="pd_price" class="swal2-input" name="product_price" value=${product_price/100}>`+'</td>'+
+                '</tr>'+
+                '</table>',
+            focusConfirm: false,
+            preConfirm: () => {
+                return {
+                    pd_id: document.getElementById('pd_id').value,
+                    pd_name: document.getElementById('pd_name').value,
+                    pd_qty: document.getElementById('pd_qty').value,
+                    pd_price: document.getElementById('pd_price').value * 100,
+                }
+            }
+            });
+            /* Read more about isConfirmed, isDenied below */
+            if (formValues) {
+                qty = parseFloat(formValues.pd_qty);
+                price = Math.round(formValues.pd_price);
+
+                if(!isValidName(formValues.pd_name) || !isValidPrice(formValues.pd_price) || !isValidQty(qty)){
+                    Swal.fire(
+                        'Deny Change',
+                        'Some input changed may cause error! Please try again.',
+                        'error'
+                    );
+                }else{
+                    Swal.fire({
+                        icon: 'question',
+                        title: 'Are you sure you want to Save the change?',
+                        showDenyButton: true,
+                        confirmButtonText: 'Save',
+                        denyButtonText: `Don't save`,
+                        }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            modifyDataInDatabase({
+                                pd_id: formValues.pd_id,
+                                pd_name : formValues.pd_name,
+                                pd_qty : qty,
+                                pd_price: price
+                            });
+                            Swal.fire('Saved!', '', 'success').then((result) => {
+                                    window.location.href = "./main_page.php";
+                                }
+                            );
+                            
+                        } else if (result.isDenied) {
+                            Swal.fire('Changes are not saved', '', 'info')
+                        }
+                    });
+                }
+            
+                
+                // Swal.fire('Saved!', '', 'success')
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+            }
+    }
+
+    function modifyDataInDatabase(row){
+        var resp = {};
+        let setting = {
+            url : "http://localhost:2002/src/views/modify_data.php",
+            method: "POST",
+            timeout: 0,
+            headers: {
+                'Content-Type': "application/json",
+            },
+            async: false,
+            success: response => {
+                resp = response.status;
+                console.log(response);
+            },
+            data: JSON.stringify(row),
+        };
+        $.ajax(setting);
+        return resp;
+    }
+
+    function isValidName(name){
+        name = name.trim();
+        if(name.length == 0){
+            return false;
+        }
+
+        if(name.length >= 200){
+            return false;
+        }
+        return true;
+    }
+    function isValidQty(qty){
+        if(Number.isInteger(qty)){
+            return true;
+        }
+        return false;
+    }
+    function isValidPrice(price){
+        if(typeof(price) != 'number'){
+            return false;
+        }
+        return true;
+    }
+    function toggleDelete(){
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
+        }
+        })
+    }
+</script>
+
+
+</html>
