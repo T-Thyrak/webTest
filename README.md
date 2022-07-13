@@ -57,6 +57,26 @@ DB_PASS=<your database user password>
 LOCALHOST_PORT=<your localhost port>
 ```
 
+And then, we'll run a little SQL script to get us the event loop for regular cleaning of the `tokens` table.
+```sql
+DELIMITER //
+CREATE DEFINER=`username`@`localhost`
+EVENT rm_tokens
+ON SCHEDULE EVERY 5 MINUTE
+ON COMPLETION PRESERVE ENABLE
+DO
+    DELETE
+        FROM `tokens`
+        WHERE DATE_SUB(NOW(), INTERVAL 40 MINUTE) > `last_updated`;
+//
+DELIMITER ;
+```
+
+Then we're gonna enable it with
+```sql
+SET GLOBAL event_scheduler=ON;
+```
+
 After that, we should be good to go.
 
 P.S: This is a little trick I use to run the project with XAMPP's built-in PHP server.
@@ -68,6 +88,10 @@ And then, run the following command:
 cd /path/to/webTest
 php -S localhost:<your localhost port>
 ```
+
+P.P.S: There is a test user in the sample database.
+
+Username = `usertest` and password = `Usertest#012#`
 
 # Screenshots
 ### Initial Login Page
