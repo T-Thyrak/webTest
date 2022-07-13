@@ -1,0 +1,37 @@
+.c-navbar {
+    background-color: #121212;
+}
+
+.c-x-padding { 
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.c-y-padding {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.c-navbar-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.c-ralign {
+    text-align: right;
+    display: flex;
+}
+
+.c-ralign > * {
+    margin-left: 20px;
+}
+
+.c-lalign {
+    display: flex;
+}
+
+.c-lalign > h4 {
+    color: white;
+    margin-left: 20px;
+}
