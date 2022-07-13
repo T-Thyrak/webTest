@@ -210,7 +210,7 @@
     function modifyDataInDatabase(row){
         var resp = {};
         let setting = {
-            url : "http://localhost:2002/src/views/modify_data.php",
+            url : "http://localhost:<?php echo $_ENV['LOCALHOST_PORT'] ?>/src/views/modify_data.php",
             method: "POST",
             timeout: 0,
             headers: {
